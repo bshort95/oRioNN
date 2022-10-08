@@ -3,23 +3,25 @@ import random
 def generate_businesses(quantity):
     '''Returns a list with the given quantity of business names.'''
     businesses = []
+    # Open each file and store a list of each one
+    with open('data/business_adjectives.txt') as file:
+        adjectives = file.readlines()
+    with open('data/last_names.txt') as file:
+        last_names = file.readlines()
+    with open('data/business_verbs.txt') as file:
+        verbs = file.readlines()
+
     for n in range(1, quantity + 1):
-        # Chance to use a last name as an adjective instead
+        # Get first part, with a chance to use a last name as an adjective instead
         random_number = random.randint(1, 4)
         if random_number > 1:
-            source_file = 'data/business_adjectives.txt'
-        else:
-            source_file = 'data/last_names.txt'
-
-        # Get first and second parts
-        with open(source_file) as file:
-            adjectives = file.readlines()
             adjective = adjectives[random.randint(1, (len(adjectives) - 1))].strip()
+        else:
+            adjective = last_names[random.randint(1, (len(adjectives) - 1))].strip()
 
-        with open('data/business_verbs.txt') as file:
-            verbs = file.readlines()
-            verb = verbs[random.randint(1, (len(verbs) - 1))].strip()
-
+        # Get second part
+        verb = verbs[random.randint(1, (len(verbs) - 1))].strip()
+        # Put the parts together and append to list
         business = adjective + " " + verb
         businesses.append(business)
     
@@ -27,5 +29,5 @@ def generate_businesses(quantity):
 
 
 # Testing
-# businesses = generate_businesses(5)
-# print(businesses)
+businesses = generate_businesses(10)
+print(businesses)
