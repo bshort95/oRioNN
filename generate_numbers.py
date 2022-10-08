@@ -70,4 +70,4 @@ def print_scores(scores):
 
 # Testing
 # scores = generate_numbers(True)
-print_scores(scores)
+# print_scores(scores)
