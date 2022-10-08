@@ -15,8 +15,8 @@ def generate_reviews(number,sen):
         temp_list.append(y)
     
     for i in range(number):
-        for j in range(5):
+        for j in range(6):
             total_list.append(temp_list[random.randint(0, (len(temp_list) -1))])
         master_list.append(total_list)
-    
+        total_list = []
     return master_list
