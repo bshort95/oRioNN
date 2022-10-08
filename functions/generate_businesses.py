@@ -26,8 +26,3 @@ def generate_businesses(quantity):
         businesses.append(business)
     
     return businesses
-
-
-# Testing
-# businesses = generate_businesses(10)
-# print(businesses)

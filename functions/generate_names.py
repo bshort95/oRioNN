@@ -19,8 +19,3 @@ def generate_names(quantity):
         names.append(full_name)
     
     return names
-
-
-# Testing
-# names = generate_names(10)
-# print(names)

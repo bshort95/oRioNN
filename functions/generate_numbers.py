@@ -1,6 +1,6 @@
 import random
 
-def generate_numbers(is_positive):
+def generate_numbers(is_positive, quantity):
     '''Generates numerical scores for each field. First, the individual scores
     will be generated, then determines the averages.
 
@@ -19,36 +19,41 @@ def generate_numbers(is_positive):
     '''
 
     assert is_positive == True or is_positive == False
-    
-    # Outcomes
-    likely_to_recommend = random.randint(1, 5)
-    impact_of_service = random.randint(1, 5)
-    caregiver_ability = random.randint(1, 5)
 
-    # Office Staff Satisfaction
-    communication_and_helpfulness = random.randint(1, 5)
-    matched_needs = random.randint(1, 5)
+    scores_list = []
 
-    if is_positive:
-        likely_to_recommend += 5
-        impact_of_service += 5
-        caregiver_ability += 5
-        communication_and_helpfulness += 5
-        matched_needs += 5
-    
-    outcome_average = (likely_to_recommend + impact_of_service) / 2
-    caregiver_average = caregiver_ability
-    
-    office_staff_average = (communication_and_helpfulness + matched_needs) / 2
+    for n in range(1, quantity + 1):
+        # Outcomes
+        likely_to_recommend = random.randint(1, 5)
+        impact_of_service = random.randint(1, 5)
+        caregiver_ability = random.randint(1, 5)
 
-    average_rating = (likely_to_recommend + impact_of_service + caregiver_ability
-    + communication_and_helpfulness + matched_needs) / 5
+        # Office Staff Satisfaction
+        communication_and_helpfulness = random.randint(1, 5)
+        matched_needs = random.randint(1, 5)
 
-    scores = [average_rating, outcome_average, caregiver_average,
-    office_staff_average, likely_to_recommend, impact_of_service,
-    caregiver_ability, communication_and_helpfulness, matched_needs]
+        if is_positive:
+            likely_to_recommend += 5
+            impact_of_service += 5
+            caregiver_ability += 5
+            communication_and_helpfulness += 5
+            matched_needs += 5
+        
+        outcome_average = (likely_to_recommend + impact_of_service) / 2
+        caregiver_average = caregiver_ability
+        
+        office_staff_average = (communication_and_helpfulness + matched_needs) / 2
 
-    return scores
+        average_rating = (likely_to_recommend + impact_of_service + caregiver_ability
+        + communication_and_helpfulness + matched_needs) / 5
+
+        scores = [average_rating, outcome_average, caregiver_average,
+        office_staff_average, likely_to_recommend, impact_of_service,
+        caregiver_ability, communication_and_helpfulness, matched_needs]
+        
+        scores_list.append(scores)
+
+    return scores_list
     
 
 def print_scores(scores):
@@ -66,8 +71,3 @@ def print_scores(scores):
     print(f"Caregiver ability: {scores[6]}")
     print(f"Communication and helpfulness: {scores[7]}")
     print(f"Needs and preferences: {scores[8]}")
-
-
-# Testing
-# scores = generate_numbers(True)
-# print_scores(scores)

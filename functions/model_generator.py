@@ -1,23 +1,20 @@
 import random
 
-def generate_reviews(p,n):
+def generate_reviews(number,sen):
     
     total_list = []
-    p_list = []
-    n_list = []
+    temp_list = []
+    data = ""
+    if sen == "p":
+        data = r"data\good.txt"
+    else:
+        data = r"data\bad.txt"
     
-    for x in open("good.txt"):
-        p_list.append(x)
-    for y in open("bad.txt"):
-        n_list.append(y)
+    for y in open(data):
+        temp_list.append(y)
     
-   
-    for i in range(p):
-        total_list.append(n_list[random.randint(0,p)])
+    for i in range(number):
+        total_list.append(temp_list[random.randint(0, (len(temp_list) -1))])
     
-    for j in range(n):
-        total_list.append(n_list[random.randint(0,n)])
-
+    
     return total_list
-
-print(generate_reviews(1,2))
