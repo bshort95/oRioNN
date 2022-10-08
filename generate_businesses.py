@@ -29,5 +29,5 @@ def generate_businesses(quantity):
 
 
 # Testing
-businesses = generate_businesses(10)
-print(businesses)
+# businesses = generate_businesses(10)
+# print(businesses)
