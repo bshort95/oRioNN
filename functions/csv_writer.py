@@ -3,7 +3,7 @@ import csv
 def csv_writer(list):
     filename = "output/dummy_data.csv"
     
-    fields = ["Score (Average Rating)", "Score (Outcome Average)", "Score (Caregiver's Average)",
+    fields = ["Name","Company Name","Interview Type","Score (Average Rating)","Score (Outcome Average)", "Score (Caregiver's Average)",
     "Score (Office Staff Average)", "Comment (Likely to recommend)", "Score (Likely to recommend)",
     "Comment (Impact of service)", "Score (Impact of service)",
     "Comment (Caregiver ability)", "Score (Caregiver ability)",
