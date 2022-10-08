@@ -1,7 +1,7 @@
 import csv
 
 def csv_writer(list):
-    filename = "dummy_data.csv"
+    filename = "output/dummy_data.csv"
     
     fields = ["Score (Average Rating)", "Score (Outcome Average)", "Score (Caregiver's Average)",
     "Score (Office Staff Average)", "Comment (Likely to recommend)", "Score (Likely to recommend)",
